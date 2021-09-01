@@ -29,6 +29,7 @@
   <ItemGroup>
     <PackageReference Include="Volo.Abp.Autofac" Version="3.3.0" />
     <ProjectReference Include="..\Teng.Infrastructure.Application.Contracts\Teng.Infrastructure.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.Ids\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.Ids.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.EntityFrameworkCore.DbMigrations\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.csproj" />
   </ItemGroup>
 

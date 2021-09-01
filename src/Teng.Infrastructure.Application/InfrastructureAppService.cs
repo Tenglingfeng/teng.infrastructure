@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Teng.Infrastructure.Localization;
+﻿using Teng.Infrastructure.Localization;
 using Volo.Abp.Application.Services;
-using Volo.Abp.Identity;
 
 namespace Teng.Infrastructure
 {

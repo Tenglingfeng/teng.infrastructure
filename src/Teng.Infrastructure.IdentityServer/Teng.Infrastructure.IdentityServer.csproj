@@ -45,6 +45,7 @@
     <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.Account.Web.IdentityServer" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.Account.Application" Version="3.3.0" />
+    <ProjectReference Include="..\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.Ids\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.Ids.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.EntityFrameworkCore.DbMigrations\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.csproj" />
   </ItemGroup>
 

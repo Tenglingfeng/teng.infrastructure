@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Teng.Infrastructure.Application\Teng.Infrastructure.Application.csproj" />
+    <ProjectReference Include="..\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.Ids\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.Ids.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.EntityFrameworkCore.DbMigrations\Teng.Infrastructure.EntityFrameworkCore.DbMigrations.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.HttpApi\Teng.Infrastructure.HttpApi.csproj" />
   </ItemGroup>

@@ -17,12 +17,12 @@ namespace Teng.Infrastructure.EntityFrameworkCore
      * It is a unified model that includes configuration for
      * all used modules and your application.
      */
+
     public class InfrastructureMigrationsDbContext : AbpDbContext<InfrastructureMigrationsDbContext>
     {
-        public InfrastructureMigrationsDbContext(DbContextOptions<InfrastructureMigrationsDbContext> options) 
+        public InfrastructureMigrationsDbContext(DbContextOptions<InfrastructureMigrationsDbContext> options)
             : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -36,7 +36,7 @@ namespace Teng.Infrastructure.EntityFrameworkCore
             builder.ConfigureBackgroundJobs();
             builder.ConfigureAuditLogging();
             builder.ConfigureIdentity();
-            builder.ConfigureIdentityServer();
+            //builder.ConfigureIdentityServer();
             builder.ConfigureFeatureManagement();
             builder.ConfigureTenantManagement();
 

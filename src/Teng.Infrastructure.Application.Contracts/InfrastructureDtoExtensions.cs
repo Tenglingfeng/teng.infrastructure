@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Identity;
+﻿using System.ComponentModel.DataAnnotations;
+using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Threading;
 
@@ -23,6 +24,17 @@ namespace Teng.Infrastructure
                  * See the documentation for more:
                  * https://docs.abp.io/en/abp/latest/Object-Extensions
                  */
+
+                ObjectExtensionManager.Instance
+                    .AddOrUpdateProperty<string>(new[]
+                    {
+                        typeof(IdentityUserDto),
+                        typeof(IdentityUserUpdateDto),
+                        typeof(IdentityUserCreateDto)
+                    }, "HeadPortrait", x =>
+                     {
+                         x.Attributes.Add(new StringLengthAttribute(256));
+                     });
             });
         }
     }

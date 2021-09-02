@@ -17,6 +17,7 @@ namespace Teng.Infrastructure.EntityFrameworkCore
      * Don't use this DbContext for database migrations since it does not contain tables of the
      * used modules (as explained above). See InfrastructureMigrationsDbContext for migrations.
      */
+
     [ConnectionStringName("Default")]
     public class InfrastructureDbContext : AbpDbContext<InfrastructureDbContext>
     {
@@ -29,7 +30,6 @@ namespace Teng.Infrastructure.EntityFrameworkCore
         public InfrastructureDbContext(DbContextOptions<InfrastructureDbContext> options)
             : base(options)
         {
-
         }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -41,9 +41,11 @@ namespace Teng.Infrastructure.EntityFrameworkCore
             builder.Entity<AppUser>(b =>
             {
                 b.ToTable(AbpIdentityDbProperties.DbTablePrefix + "Users"); //Sharing the same table "AbpUsers" with the IdentityUser
-                
+
                 b.ConfigureByConvention();
                 b.ConfigureAbpUser();
+
+                b.Property(x => x.HeadPortrait).HasMaxLength(256);
 
                 /* Configure mappings for your additional properties
                  * Also see the InfrastructureEfCoreEntityExtensionMappings class

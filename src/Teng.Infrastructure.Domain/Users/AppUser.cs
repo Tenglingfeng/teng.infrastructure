@@ -12,6 +12,7 @@ namespace Teng.Infrastructure.Users
      * - You can query users from database with this entity.
      * - You can update values of your custom properties.
      */
+
     public class AppUser : FullAuditedAggregateRoot<Guid>, IUser
     {
         #region Base properties
@@ -38,7 +39,7 @@ namespace Teng.Infrastructure.Users
 
         public virtual bool PhoneNumberConfirmed { get; private set; }
 
-        #endregion
+        #endregion Base properties
 
         /* Add your own properties here. Example:
          *
@@ -55,9 +56,37 @@ namespace Teng.Infrastructure.Users
          * schema change to the database.
          */
 
+        public string HeadPortrait { get; private set; }
+
         private AppUser()
         {
-            
+        }
+
+        public AppUser(
+            Guid? tenantId,
+            string userName,
+            string name,
+            string surname,
+            string email,
+            bool emailConfirmed,
+            string phoneNumber,
+            bool phoneNumberConfirmed,
+            string headPortrait)
+        {
+            TenantId = tenantId;
+            UserName = userName;
+            Name = name;
+            Surname = surname;
+            Email = email;
+            EmailConfirmed = emailConfirmed;
+            PhoneNumber = phoneNumber;
+            PhoneNumberConfirmed = phoneNumberConfirmed;
+            HeadPortrait = headPortrait;
+        }
+
+        public void SetHeadPortrait(string headPortrait)
+        {
+            HeadPortrait = headPortrait;
         }
     }
 }

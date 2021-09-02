@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Teng.Infrastructure.Users;
 using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 using Volo.Abp.Threading;
@@ -39,6 +40,14 @@ namespace Teng.Infrastructure.EntityFrameworkCore
                  * See the documentation for more:
                  * https://docs.abp.io/en/abp/latest/Customizing-Application-Modules-Extending-Entities
                  */
+
+                ObjectExtensionManager.Instance
+                    .MapEfCoreProperty<IdentityUser, string>(
+                        nameof(AppUser.HeadPortrait),
+                        ((builder, propertyBuilder) =>
+                        {
+                            propertyBuilder.HasMaxLength(256);
+                        }));
             });
         }
     }

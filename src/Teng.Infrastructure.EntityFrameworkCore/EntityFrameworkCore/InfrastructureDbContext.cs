@@ -46,7 +46,8 @@ namespace Teng.Infrastructure.EntityFrameworkCore
                 b.ConfigureAbpUser();
 
                 b.Property(x => x.HeadPortrait).HasMaxLength(256);
-
+                b.Property(x => x.Avatar).HasMaxLength(256);
+                b.Property(x => x.Introduction).HasMaxLength(256);
                 /* Configure mappings for your additional properties
                  * Also see the InfrastructureEfCoreEntityExtensionMappings class
                  */

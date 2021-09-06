@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\teng.fileManagement\src\Teng.FileManagement.HttpApi\Teng.FileManagement.HttpApi.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Application.Contracts\Teng.Infrastructure.Application.Contracts.csproj" />
   </ItemGroup>
 

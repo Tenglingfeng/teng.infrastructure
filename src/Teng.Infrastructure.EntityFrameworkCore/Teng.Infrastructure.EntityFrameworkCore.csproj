@@ -8,6 +8,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <ProjectReference Include="..\..\..\teng.fileManagement\src\Teng.FileManagement.EntityFrameworkCore\Teng.FileManagement.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Domain\Teng.Infrastructure.Domain.csproj" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="3.3.0" />

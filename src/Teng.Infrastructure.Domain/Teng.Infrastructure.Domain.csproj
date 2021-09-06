@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\teng.fileManagement\src\Teng.FileManagement.Domain\Teng.FileManagement.Domain.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Domain.Shared\Teng.Infrastructure.Domain.Shared.csproj" />
   </ItemGroup>
 

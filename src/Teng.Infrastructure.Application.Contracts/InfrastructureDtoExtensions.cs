@@ -35,6 +35,30 @@ namespace Teng.Infrastructure
                      {
                          x.Attributes.Add(new StringLengthAttribute(256));
                      });
+
+                ObjectExtensionManager.Instance
+                    .AddOrUpdateProperty<string>(
+                        new[]
+                        {
+                            typeof(IdentityUserDto),
+                            typeof(IdentityUserCreateDto),
+                            typeof(IdentityUserUpdateDto),
+                            typeof(ProfileDto),
+                            typeof(UpdateProfileDto)
+                        },
+                        "Avatar"
+                    )
+                    .AddOrUpdateProperty<string>(
+                        new[]
+                        {
+                            typeof(IdentityUserDto),
+                            typeof(IdentityUserCreateDto),
+                            typeof(IdentityUserUpdateDto),
+                            typeof(ProfileDto),
+                            typeof(UpdateProfileDto)
+                        },
+                        "Introduction"
+                    );
             });
         }
     }

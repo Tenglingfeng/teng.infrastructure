@@ -15,7 +15,8 @@ namespace Teng.Infrastructure
         typeof(AbpIdentityApplicationModule),
         typeof(AbpPermissionManagementApplicationModule),
         typeof(AbpTenantManagementApplicationModule),
-        typeof(AbpFeatureManagementApplicationModule)
+        typeof(AbpFeatureManagementApplicationModule),
+        typeof(Teng.FileManagement.FileManagementApplicationModule)
         )]
     public class InfrastructureApplicationModule : AbpModule
     {

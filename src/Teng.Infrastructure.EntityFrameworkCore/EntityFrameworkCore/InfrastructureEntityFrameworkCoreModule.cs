@@ -23,7 +23,8 @@ namespace Teng.Infrastructure.EntityFrameworkCore
         typeof(AbpBackgroundJobsEntityFrameworkCoreModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
-        typeof(AbpFeatureManagementEntityFrameworkCoreModule)
+        typeof(AbpFeatureManagementEntityFrameworkCoreModule),
+        typeof(Teng.FileManagement.EntityFrameworkCore.FileManagementEntityFrameworkCoreModule)
         )]
     public class InfrastructureEntityFrameworkCoreModule : AbpModule
     {

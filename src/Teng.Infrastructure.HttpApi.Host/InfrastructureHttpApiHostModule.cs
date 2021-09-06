@@ -53,6 +53,11 @@ namespace Teng.Infrastructure
             ConfigureRedis(context, configuration, hostingEnvironment);
             ConfigureCors(context, configuration);
             ConfigureSwaggerServices(context);
+            Configure<Teng.FileManagement.FileOptions>(x =>
+                {
+                    x.FileUploadLocalFolder = Path.Combine(hostingEnvironment.ContentRootPath, "upload");
+                    x.MaxFileSize = 100000000;
+                });
         }
 
         private void ConfigureCache(IConfiguration configuration)
@@ -108,7 +113,7 @@ namespace Teng.Infrastructure
             context.Services.AddSwaggerGen(
                 options =>
                 {
-                    options.SwaggerDoc("v1", new OpenApiInfo {Title = "Infrastructure API", Version = "v1"});
+                    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Infrastructure API", Version = "v1" });
                     options.DocInclusionPredicate((docName, description) => true);
                 });
         }

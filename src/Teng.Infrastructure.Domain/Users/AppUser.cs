@@ -58,6 +58,10 @@ namespace Teng.Infrastructure.Users
 
         public string HeadPortrait { get; private set; }
 
+        public string Avatar { get; set; }
+
+        public string Introduction { get; set; }
+
         private AppUser()
         {
         }

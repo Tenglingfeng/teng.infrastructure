@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <Import Project="..\..\common.props" />
 
@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\teng.fileManagement\src\Teng.FileManagement.Application.Contracts\Teng.FileManagement.Application.Contracts.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Domain.Shared\Teng.Infrastructure.Domain.Shared.csproj" />
   </ItemGroup>
 
@@ -19,5 +20,4 @@
     <PackageReference Include="Volo.Abp.TenantManagement.Application.Contracts" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.FeatureManagement.Application.Contracts" Version="3.3.0" />
   </ItemGroup>
-
 </Project>

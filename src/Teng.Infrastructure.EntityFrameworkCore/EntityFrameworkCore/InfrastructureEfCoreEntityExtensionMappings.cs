@@ -48,6 +48,22 @@ namespace Teng.Infrastructure.EntityFrameworkCore
                         {
                             propertyBuilder.HasMaxLength(256);
                         }));
+
+                ObjectExtensionManager.Instance
+                .MapEfCoreProperty<IdentityUser, string>(
+                    nameof(AppUser.Avatar),
+                     (builder, property) =>
+                     {
+                         property.HasMaxLength(256);
+                     });
+
+                ObjectExtensionManager.Instance
+                    .MapEfCoreProperty<IdentityUser, string>(
+                        nameof(AppUser.Introduction),
+                        (builder, property) =>
+                        {
+                            property.HasMaxLength(256);
+                        });
             });
         }
     }

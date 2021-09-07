@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Account;
+﻿using Teng.FileManagement;
+using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
@@ -16,7 +17,7 @@ namespace Teng.Infrastructure
         typeof(AbpPermissionManagementApplicationContractsModule),
         typeof(AbpTenantManagementApplicationContractsModule),
         typeof(AbpObjectExtendingModule),
-        typeof(Teng.FileManagement.FileManagementApplicationContractsModule)
+        typeof(FileManagementApplicationContractsModule)
     )]
     public class InfrastructureApplicationContractsModule : AbpModule
     {

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Teng.Infrastructure.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
@@ -9,9 +10,10 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Teng.Infrastructure.Migrations
 {
     [DbContext(typeof(InfrastructureMigrationsDbContext))]
-    partial class InfrastructureMigrationsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210907161758_add-fileManagement1")]
+    partial class addfileManagement1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

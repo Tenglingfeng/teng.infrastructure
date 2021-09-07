@@ -1,4 +1,5 @@
 ﻿using Localization.Resources.AbpUi;
+using Teng.FileManagement;
 using Teng.Infrastructure.Localization;
 using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
@@ -17,7 +18,7 @@ namespace Teng.Infrastructure
         typeof(AbpPermissionManagementHttpApiModule),
         typeof(AbpTenantManagementHttpApiModule),
         typeof(AbpFeatureManagementHttpApiModule),
-        typeof(Teng.FileManagement.FileManagementHttpApiModule)
+        typeof(FileManagementHttpApiModule)
         )]
     public class InfrastructureHttpApiModule : AbpModule
     {

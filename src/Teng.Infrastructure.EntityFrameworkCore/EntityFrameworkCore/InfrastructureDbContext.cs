@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Teng.FileManagement.EntityFrameworkCore;
 using Teng.Infrastructure.Users;
 using Volo.Abp.Data;
 using Volo.Abp.EntityFrameworkCore;

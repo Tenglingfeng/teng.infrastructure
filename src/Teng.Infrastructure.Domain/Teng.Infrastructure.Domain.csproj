@@ -8,11 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\teng.fileManagement\src\Teng.FileManagement.Domain\Teng.FileManagement.Domain.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Domain.Shared\Teng.Infrastructure.Domain.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Teng.FileManagement.Domain" Version="0.1.2" />
     <PackageReference Include="Volo.Abp.Emailing" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.Identity.Domain" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="3.3.0" />
@@ -24,5 +24,4 @@
     <PackageReference Include="Volo.Abp.FeatureManagement.Domain" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.SettingManagement.Domain" Version="3.3.0" />
   </ItemGroup>
-
 </Project>

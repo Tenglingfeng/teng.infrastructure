@@ -9,11 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\teng.fileManagement\src\Teng.FileManagement.HttpApi.Client\Teng.FileManagement.HttpApi.Client.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Application.Contracts\Teng.Infrastructure.Application.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Teng.FileManagement.HttpApi.Client" Version="0.1.2" />
     <PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="3.3.0" />

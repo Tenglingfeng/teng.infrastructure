@@ -8,12 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\teng.fileManagement\src\Teng.FileManagement.Application\Teng.FileManagement.Application.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Domain\Teng.Infrastructure.Domain.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Application.Contracts\Teng.Infrastructure.Application.Contracts.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Teng.FileManagement.Application" Version="0.1.2" />
     <PackageReference Include="Volo.Abp.Account.Application" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.Identity.Application" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="3.3.0" />

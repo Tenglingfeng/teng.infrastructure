@@ -6,10 +6,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Teng.Infrastructure</RootNamespace>
   </PropertyGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\..\..\teng.fileManagement\src\Teng.FileManagement.EntityFrameworkCore\Teng.FileManagement.EntityFrameworkCore.csproj" />
     <ProjectReference Include="..\Teng.Infrastructure.Domain\Teng.Infrastructure.Domain.csproj" />
+    <PackageReference Include="Teng.FileManagement.EntityFrameworkCore" Version="0.1.2" />
     <PackageReference Include="Volo.Abp.EntityFrameworkCore.MySQL" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.SettingManagement.EntityFrameworkCore" Version="3.3.0" />
@@ -20,5 +20,4 @@
     <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="3.3.0" />
   </ItemGroup>
-
 </Project>

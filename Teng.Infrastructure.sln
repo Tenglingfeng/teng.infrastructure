@@ -43,26 +43,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.Infrastructure.EntityF
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{C9309D1E-B0EC-44AA-8492-9199A160115C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.Application", "..\teng.fileManagement\src\Teng.FileManagement.Application\Teng.FileManagement.Application.csproj", "{2AF69F89-5847-415D-9FD1-22946C00145A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.Application.Contracts", "..\teng.fileManagement\src\Teng.FileManagement.Application.Contracts\Teng.FileManagement.Application.Contracts.csproj", "{C29FBCE1-8B67-4361-9FC8-3DA0BFDB1D86}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.Domain", "..\teng.fileManagement\src\Teng.FileManagement.Domain\Teng.FileManagement.Domain.csproj", "{3D72335B-C6F4-4E52-8851-315E6754C844}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.Domain.Shared", "..\teng.fileManagement\src\Teng.FileManagement.Domain.Shared\Teng.FileManagement.Domain.Shared.csproj", "{2191B181-FCFC-4FE9-8953-84456CB0BEAF}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.EntityFrameworkCore", "..\teng.fileManagement\src\Teng.FileManagement.EntityFrameworkCore\Teng.FileManagement.EntityFrameworkCore.csproj", "{95892DBC-8F61-4B5A-9655-B4FB44D315B9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.HttpApi", "..\teng.fileManagement\src\Teng.FileManagement.HttpApi\Teng.FileManagement.HttpApi.csproj", "{FC89C960-E374-4463-BAF2-5CE04D35BA9C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.HttpApi.Client", "..\teng.fileManagement\src\Teng.FileManagement.HttpApi.Client\Teng.FileManagement.HttpApi.Client.csproj", "{9AF3546A-DD99-4B62-8785-774B01321E57}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.IdentityServer", "..\teng.fileManagement\host\Teng.FileManagement.IdentityServer\Teng.FileManagement.IdentityServer.csproj", "{216A7A3F-2E5F-4C84-9B6E-6F89A11AC82E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.HttpApi.Host", "..\teng.fileManagement\host\Teng.FileManagement.HttpApi.Host\Teng.FileManagement.HttpApi.Host.csproj", "{DC139DE6-D18E-45A5-B41E-2FF28C7C65DA}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Teng.FileManagement.Host.Shared", "..\teng.fileManagement\host\Teng.FileManagement.Host.Shared\Teng.FileManagement.Host.Shared.csproj", "{A8F1044E-B509-43FA-85E3-D844F993E15F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,46 +117,6 @@ Global
 		{56857FB0-518F-4092-9894-61E778943372}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56857FB0-518F-4092-9894-61E778943372}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56857FB0-518F-4092-9894-61E778943372}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2AF69F89-5847-415D-9FD1-22946C00145A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2AF69F89-5847-415D-9FD1-22946C00145A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2AF69F89-5847-415D-9FD1-22946C00145A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2AF69F89-5847-415D-9FD1-22946C00145A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C29FBCE1-8B67-4361-9FC8-3DA0BFDB1D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C29FBCE1-8B67-4361-9FC8-3DA0BFDB1D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C29FBCE1-8B67-4361-9FC8-3DA0BFDB1D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C29FBCE1-8B67-4361-9FC8-3DA0BFDB1D86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D72335B-C6F4-4E52-8851-315E6754C844}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D72335B-C6F4-4E52-8851-315E6754C844}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D72335B-C6F4-4E52-8851-315E6754C844}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D72335B-C6F4-4E52-8851-315E6754C844}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2191B181-FCFC-4FE9-8953-84456CB0BEAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2191B181-FCFC-4FE9-8953-84456CB0BEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2191B181-FCFC-4FE9-8953-84456CB0BEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2191B181-FCFC-4FE9-8953-84456CB0BEAF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95892DBC-8F61-4B5A-9655-B4FB44D315B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95892DBC-8F61-4B5A-9655-B4FB44D315B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95892DBC-8F61-4B5A-9655-B4FB44D315B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95892DBC-8F61-4B5A-9655-B4FB44D315B9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC89C960-E374-4463-BAF2-5CE04D35BA9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC89C960-E374-4463-BAF2-5CE04D35BA9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC89C960-E374-4463-BAF2-5CE04D35BA9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC89C960-E374-4463-BAF2-5CE04D35BA9C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9AF3546A-DD99-4B62-8785-774B01321E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9AF3546A-DD99-4B62-8785-774B01321E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9AF3546A-DD99-4B62-8785-774B01321E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9AF3546A-DD99-4B62-8785-774B01321E57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{216A7A3F-2E5F-4C84-9B6E-6F89A11AC82E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{216A7A3F-2E5F-4C84-9B6E-6F89A11AC82E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{216A7A3F-2E5F-4C84-9B6E-6F89A11AC82E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{216A7A3F-2E5F-4C84-9B6E-6F89A11AC82E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DC139DE6-D18E-45A5-B41E-2FF28C7C65DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC139DE6-D18E-45A5-B41E-2FF28C7C65DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC139DE6-D18E-45A5-B41E-2FF28C7C65DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC139DE6-D18E-45A5-B41E-2FF28C7C65DA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A8F1044E-B509-43FA-85E3-D844F993E15F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A8F1044E-B509-43FA-85E3-D844F993E15F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A8F1044E-B509-43FA-85E3-D844F993E15F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A8F1044E-B509-43FA-85E3-D844F993E15F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -199,16 +139,6 @@ Global
 		{EF480016-9127-4916-8735-D2466BDBC582} = {04DBDB01-70F4-4E06-B468-8F87850B22BE}
 		{AA94D832-1CCC-4715-95A9-A483F23A1A5D} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
 		{56857FB0-518F-4092-9894-61E778943372} = {CA9AC87F-097E-4F15-8393-4BC07735A5B0}
-		{2AF69F89-5847-415D-9FD1-22946C00145A} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{C29FBCE1-8B67-4361-9FC8-3DA0BFDB1D86} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{3D72335B-C6F4-4E52-8851-315E6754C844} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{2191B181-FCFC-4FE9-8953-84456CB0BEAF} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{95892DBC-8F61-4B5A-9655-B4FB44D315B9} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{FC89C960-E374-4463-BAF2-5CE04D35BA9C} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{9AF3546A-DD99-4B62-8785-774B01321E57} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{216A7A3F-2E5F-4C84-9B6E-6F89A11AC82E} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{DC139DE6-D18E-45A5-B41E-2FF28C7C65DA} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
-		{A8F1044E-B509-43FA-85E3-D844F993E15F} = {C9309D1E-B0EC-44AA-8492-9199A160115C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28315BFD-90E7-4E14-A2EA-F3D23AF4126F}

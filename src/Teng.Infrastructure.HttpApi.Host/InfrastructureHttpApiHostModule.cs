@@ -53,11 +53,6 @@ namespace Teng.Infrastructure
             ConfigureRedis(context, configuration, hostingEnvironment);
             ConfigureCors(context, configuration);
             ConfigureSwaggerServices(context);
-            Configure<Teng.FileManagement.FileOptions>(x =>
-                {
-                    x.FileUploadLocalFolder = Path.Combine(hostingEnvironment.ContentRootPath, "upload");
-                    x.MaxFileSize = 100000000;
-                });
         }
 
         private void ConfigureCache(IConfiguration configuration)

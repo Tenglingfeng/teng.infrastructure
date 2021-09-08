@@ -1,6 +1,8 @@
 ﻿using Teng.FileManagement;
 using Volo.Abp.Account;
 using Volo.Abp.AutoMapper;
+using Volo.Abp.BlobStoring;
+using Volo.Abp.BlobStoring.FileSystem;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
 using Volo.Abp.Modularity;
@@ -27,6 +29,7 @@ namespace Teng.Infrastructure
             {
                 options.AddMaps<InfrastructureApplicationModule>();
             });
+
         }
     }
 }

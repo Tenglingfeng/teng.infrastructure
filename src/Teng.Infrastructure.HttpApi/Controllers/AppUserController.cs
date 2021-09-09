@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Teng.Infrastructure.Localization;
 using Teng.Infrastructure.Users;
 using Teng.Infrastructure.Users.dtos;
+using Volo.Abp.Account;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Identity;
 
@@ -14,7 +16,7 @@ namespace Teng.Infrastructure.Controllers
 
     [ControllerName("AppUser")]
     [Area("AppUser")]
-    [Route("api/app-user")]
+    [Route("api/user")]
     public class AppUserController : InfrastructureController
     {
         private readonly IAppUserAppService _appUserAppService;
@@ -24,10 +26,14 @@ namespace Teng.Infrastructure.Controllers
             _appUserAppService = appUserAppService;
         }
 
-        [HttpGet("{userName}")]
-        public async Task<ActionResult<AppUserDto>> GetAsync(string userName)
+        [HttpPost("login")]
+        [AllowAnonymous]
+        public async Task<ActionResult<AppUserDto>> LoginAsync()
         {
-            return Ok(await _appUserAppService.Login(userName, ""));
+            
+            var username = Request.Form["username"].FirstOrDefault();
+            var password = Request.Form["password"].FirstOrDefault();
+            return Ok(await _appUserAppService.Login(username, password));
         }
     }
 }

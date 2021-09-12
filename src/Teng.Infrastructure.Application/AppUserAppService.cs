@@ -53,7 +53,7 @@ namespace Teng.Infrastructure
 
             if (doc.IsError)
             {
-                throw new UserFriendlyException("认证中心异常");
+                throw new UserFriendlyException("系统错误");
             }
 
             var token = await client.RequestPasswordTokenAsync(new PasswordTokenRequest()

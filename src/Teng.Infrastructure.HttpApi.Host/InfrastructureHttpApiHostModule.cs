@@ -165,7 +165,7 @@ namespace Teng.Infrastructure
                         //)
                         //.WithAbpExposedHeaders()
                         //.SetIsOriginAllowedToAllowWildcardSubdomains()
-                        //.AllowAnyHeader()
+                        .AllowAnyHeader()
                         //.AllowAnyMethod()
                         //.AllowCredentials();
                         .AllowAnyOrigin();

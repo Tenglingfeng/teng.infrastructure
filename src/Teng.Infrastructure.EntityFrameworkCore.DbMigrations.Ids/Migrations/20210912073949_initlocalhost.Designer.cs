@@ -10,8 +10,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Teng.Infrastructure.Ids.Migrations
 {
     [DbContext(typeof(InfrastructureMigrationIdsDbContext))]
-    [Migration("20210901155133_init-ids")]
-    partial class initids
+    [Migration("20210912073949_initlocalhost")]
+    partial class initlocalhost
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

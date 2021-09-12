@@ -1,62 +1,84 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
-using IdentityServer4.Services;
-using Microsoft.AspNetCore.Identity;
+using IdentityModel;
+using IdentityModel.Client;
+using Microsoft.Extensions.Options;
 using Teng.Infrastructure.Users;
-using Volo.Abp.Data;
-using Volo.Abp.DependencyInjection;
-using Volo.Abp.Domain.Repositories;
+using Teng.Infrastructure.Users.dtos;
+using Volo.Abp;
 using Volo.Abp.Identity;
-using Volo.Abp.ObjectExtending;
-using Volo.Abp.Users;
 
 namespace Teng.Infrastructure
 {
     public class AppUserAppService : IdentityUserAppService, IAppUserAppService
     {
-        private readonly SignInManager<AppUser> _signInManager;
         private readonly IdentitySecurityLogManager _identitySecurityLogManager;
+
+        private readonly IOptions<TokenClientOptions> _clientOptions;
 
         public AppUserAppService(IdentityUserManager userManager,
             IIdentityUserRepository userRepository,
             IIdentityRoleRepository roleRepository,
-            SignInManager<AppUser> signInManager,
-            IdentitySecurityLogManager identitySecurityLogManager) : base(userManager, userRepository, roleRepository)
+            IdentitySecurityLogManager identitySecurityLogManager, IOptions<TokenClientOptions> clientOptions) : base(userManager, userRepository, roleRepository)
         {
-            _signInManager = signInManager;
             _identitySecurityLogManager = identitySecurityLogManager;
+            _clientOptions = clientOptions;
         }
 
-        public async Task<AppUserDto> Login(LoginInputDto input)
+        public async Task<LoginResultDto> Login(LoginInputDto input)
         {
             Check.NotNullOrWhiteSpace(input.UserName, nameof(input.UserName));
             Check.NotNullOrWhiteSpace(input.PassWord, nameof(input.PassWord));
 
-            var signInResult = await _signInManager.PasswordSignInAsync(input.UserName, input.PassWord, true, true);
-
             await _identitySecurityLogManager.SaveAsync(new IdentitySecurityLogContext()
             {
                 Identity = IdentitySecurityLogIdentityConsts.Identity,
-                Action = signInResult.ToIdentitySecurityLogAction(),
+                Action = nameof(Login),
                 UserName = input.UserName
             });
 
-            return new AppUserDto();
+            var user = await UserManager.FindByNameAsync(input.UserName);
 
-            //var user = await UserManager.FindByNameAsync(userName);
+            var b = await UserManager.CheckPasswordAsync(user, input.PassWord);
+            if (!b)
+            {
+                throw new UserFriendlyException("用户名或密码错误");
+            }
 
-            //var b = await UserManager.CheckPasswordAsync(user, passWord);
+            var client = new HttpClient();
+            var doc = await client.GetDiscoveryDocumentAsync(new DiscoveryDocumentRequest()
+            {
+                Address = _clientOptions.Value.Address
+            });
 
-            //if (b)
-            //{
-            //    return ObjectMapper.Map<Volo.Abp.Identity.IdentityUser, AppUserDto>(user);
-            //}
-            //throw new UserFriendlyException("用户名或密码错误");
+            if (doc.IsError)
+            {
+                throw new UserFriendlyException("认证中心异常");
+            }
+
+            var token = await client.RequestPasswordTokenAsync(new PasswordTokenRequest()
+            {
+                Address = doc.TokenEndpoint,
+                ClientId = _clientOptions.Value.ClientId,
+                ClientSecret = _clientOptions.Value.ClientSecret,
+                UserName = input.UserName,
+                Password = input.PassWord,
+                GrantType = OidcConstants.GrantTypes.Password
+            });
+
+            if (token.IsError)
+            {
+                throw new UserFriendlyException("认证失败" + token.HttpErrorReason);
+            }
+            return new LoginResultDto()
+            {
+                AccessToken = token.AccessToken,
+                IdentityToken = token.IdentityToken,
+                RefreshToken = token.RefreshToken,
+                TokenType = token.TokenType,
+                ExpiresIn = token.ExpiresIn,
+                ErrorDescription = token.ErrorDescription
+            };
         }
     }
 }

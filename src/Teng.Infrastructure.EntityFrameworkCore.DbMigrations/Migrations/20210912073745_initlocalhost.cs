@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Teng.Infrastructure.Migrations
 {
-    public partial class init : Migration
+    public partial class initlocalhost : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -265,11 +265,38 @@ namespace Teng.Infrastructure.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false, defaultValue: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false, defaultValue: false),
-                    AccessFailedCount = table.Column<int>(nullable: false, defaultValue: 0)
+                    AccessFailedCount = table.Column<int>(nullable: false, defaultValue: 0),
+                    Avatar = table.Column<string>(maxLength: 256, nullable: true),
+                    HeadPortrait = table.Column<string>(maxLength: 256, nullable: true),
+                    Introduction = table.Column<string>(maxLength: 256, nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AbpUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FileManagementFiles",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(nullable: false),
+                    ExtraProperties = table.Column<string>(nullable: true),
+                    ConcurrencyStamp = table.Column<string>(maxLength: 40, nullable: true),
+                    CreationTime = table.Column<DateTime>(nullable: false),
+                    CreatorId = table.Column<Guid>(nullable: true),
+                    LastModificationTime = table.Column<DateTime>(nullable: true),
+                    LastModifierId = table.Column<Guid>(nullable: true),
+                    IsDeleted = table.Column<bool>(nullable: false, defaultValue: false),
+                    DeleterId = table.Column<Guid>(nullable: true),
+                    DeletionTime = table.Column<DateTime>(nullable: true),
+                    TenantId = table.Column<Guid>(nullable: true),
+                    FileName = table.Column<string>(maxLength: 256, nullable: false),
+                    BlobName = table.Column<string>(maxLength: 256, nullable: false),
+                    ByteSize = table.Column<long>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FileManagementFiles", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -731,6 +758,9 @@ namespace Teng.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "AbpUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "FileManagementFiles");
 
             migrationBuilder.DropTable(
                 name: "AbpEntityChanges");

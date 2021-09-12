@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Linq;
+using IdentityModel.Client;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Cors;
@@ -102,6 +103,13 @@ namespace Teng.Infrastructure
                     options.RequireHttpsMetadata = Convert.ToBoolean(configuration["AuthServer:RequireHttpsMetadata"]);
                     options.Audience = "web.admin";
                 });
+
+            Configure<TokenClientOptions>(x =>
+            {
+                x.ClientId = "client.web.admin";
+                x.ClientSecret = "1q2w3e*";
+                x.Address = configuration["AuthServer:Authority"];
+            });
         }
 
         private static void ConfigureSwaggerServices(ServiceConfigurationContext context)
@@ -149,17 +157,18 @@ namespace Teng.Infrastructure
                 options.AddPolicy(DefaultCorsPolicyName, builder =>
                 {
                     builder
-                        .WithOrigins(
-                            configuration["App:CorsOrigins"]
-                                .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                .Select(o => o.RemovePostFix("/"))
-                                .ToArray()
-                        )
-                        .WithAbpExposedHeaders()
-                        .SetIsOriginAllowedToAllowWildcardSubdomains()
-                        .AllowAnyHeader()
-                        .AllowAnyMethod()
-                        .AllowCredentials();
+                        //.WithOrigins(
+                        //    configuration["App:CorsOrigins"]
+                        //        .Split(",", StringSplitOptions.RemoveEmptyEntries)
+                        //        .Select(o => o.RemovePostFix("/"))
+                        //        .ToArray()
+                        //)
+                        //.WithAbpExposedHeaders()
+                        //.SetIsOriginAllowedToAllowWildcardSubdomains()
+                        //.AllowAnyHeader()
+                        //.AllowAnyMethod()
+                        //.AllowCredentials();
+                        .AllowAnyOrigin();
                 });
             });
         }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Teng.Infrastructure.Ids.Migrations
 {
-    public partial class initids : Migration
+    public partial class initlocalhost : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

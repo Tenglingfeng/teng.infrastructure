@@ -7,6 +7,6 @@ namespace Teng.Infrastructure.Users
 {
     public interface IAppUserAppService : IApplicationService
     {
-        Task<AppUserDto> Login(string userName, string passWord);
+        Task<AppUserDto> Login(LoginInputDto input);
     }
 }

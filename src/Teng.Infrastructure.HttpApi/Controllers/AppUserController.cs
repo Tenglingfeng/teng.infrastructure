@@ -28,12 +28,9 @@ namespace Teng.Infrastructure.Controllers
 
         [HttpPost("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<AppUserDto>> LoginAsync()
+        public async Task<ActionResult<AppUserDto>> LoginAsync([FromForm] LoginInputDto input)
         {
-            
-            var username = Request.Form["username"].FirstOrDefault();
-            var password = Request.Form["password"].FirstOrDefault();
-            return Ok(await _appUserAppService.Login(username, password));
+            return Ok(await _appUserAppService.Login(input));
         }
     }
 }

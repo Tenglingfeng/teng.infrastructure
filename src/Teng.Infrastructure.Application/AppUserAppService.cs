@@ -27,28 +27,28 @@ namespace Teng.Infrastructure
         private readonly SignInManager<AppUser> _signInManager;
         private readonly IdentitySecurityLogManager _identitySecurityLogManager;
 
-        public AppUserAppService(IdentityUserManager userManager, 
-            IIdentityUserRepository userRepository, 
+        public AppUserAppService(IdentityUserManager userManager,
+            IIdentityUserRepository userRepository,
             IIdentityRoleRepository roleRepository,
-            SignInManager<AppUser> signInManager, 
+            SignInManager<AppUser> signInManager,
             IdentitySecurityLogManager identitySecurityLogManager) : base(userManager, userRepository, roleRepository)
         {
             _signInManager = signInManager;
             _identitySecurityLogManager = identitySecurityLogManager;
         }
 
-        public async Task<AppUserDto> Login(string userName, string passWord)
+        public async Task<AppUserDto> Login(LoginInputDto input)
         {
-            Check.NotNullOrWhiteSpace(userName, nameof(userName));
-            Check.NotNullOrWhiteSpace(passWord, nameof(passWord));
+            Check.NotNullOrWhiteSpace(input.UserName, nameof(input.UserName));
+            Check.NotNullOrWhiteSpace(input.PassWord, nameof(input.PassWord));
 
-            var signInResult = await _signInManager.PasswordSignInAsync(userName, passWord, true, true);
+            var signInResult = await _signInManager.PasswordSignInAsync(input.UserName, input.PassWord, true, true);
 
             await _identitySecurityLogManager.SaveAsync(new IdentitySecurityLogContext()
             {
                 Identity = IdentitySecurityLogIdentityConsts.Identity,
                 Action = signInResult.ToIdentitySecurityLogAction(),
-                UserName = userName
+                UserName = input.UserName
             });
 
             return new AppUserDto();

@@ -1,4 +1,5 @@
 ﻿using Localization.Resources.AbpUi;
+using Microsoft.Extensions.DependencyInjection;
 using Teng.FileManagement;
 using Teng.Infrastructure.Localization;
 using Volo.Abp.Account;

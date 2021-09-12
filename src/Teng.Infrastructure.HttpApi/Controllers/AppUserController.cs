@@ -1,11 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Teng.Infrastructure.Localization;
 using Teng.Infrastructure.Users;
 using Teng.Infrastructure.Users.dtos;
-using Volo.Abp.Account;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.Identity;
 
@@ -16,7 +14,7 @@ namespace Teng.Infrastructure.Controllers
 
     [ControllerName("AppUser")]
     [Area("AppUser")]
-    [Route("api/user")]
+    [Route("api/app-user")]
     public class AppUserController : InfrastructureController
     {
         private readonly IAppUserAppService _appUserAppService;

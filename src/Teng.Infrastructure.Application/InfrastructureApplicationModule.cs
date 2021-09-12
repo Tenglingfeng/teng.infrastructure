@@ -29,6 +29,7 @@ namespace Teng.Infrastructure
             {
                 options.AddMaps<InfrastructureApplicationModule>();
             });
+
         }
     }
 }

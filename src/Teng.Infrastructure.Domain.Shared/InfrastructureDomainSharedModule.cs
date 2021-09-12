@@ -23,8 +23,7 @@ namespace Teng.Infrastructure
         typeof(AbpIdentityServerDomainSharedModule),
         typeof(AbpPermissionManagementDomainSharedModule),
         typeof(AbpSettingManagementDomainSharedModule),
-        typeof(AbpTenantManagementDomainSharedModule),
-        typeof(Teng.FileManagement.FileManagementDomainSharedModule)
+        typeof(AbpTenantManagementDomainSharedModule)
         )]
     public class InfrastructureDomainSharedModule : AbpModule
     {

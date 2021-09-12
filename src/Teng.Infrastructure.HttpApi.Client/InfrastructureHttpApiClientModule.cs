@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Teng.FileManagement;
 using Volo.Abp.Account;
 using Volo.Abp.FeatureManagement;
 using Volo.Abp.Identity;
@@ -15,8 +14,7 @@ namespace Teng.Infrastructure
         typeof(AbpIdentityHttpApiClientModule),
         typeof(AbpPermissionManagementHttpApiClientModule),
         typeof(AbpTenantManagementHttpApiClientModule),
-        typeof(AbpFeatureManagementHttpApiClientModule),
-        typeof(FileManagementHttpApiClientModule)
+        typeof(AbpFeatureManagementHttpApiClientModule)
     )]
     public class InfrastructureHttpApiClientModule : AbpModule
     {

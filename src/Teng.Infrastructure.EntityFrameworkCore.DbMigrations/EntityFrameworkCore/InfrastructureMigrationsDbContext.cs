@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Teng.FileManagement.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
@@ -40,7 +39,6 @@ namespace Teng.Infrastructure.EntityFrameworkCore
             //builder.ConfigureIdentityServer();
             builder.ConfigureFeatureManagement();
             builder.ConfigureTenantManagement();
-            builder.ConfigureFileManagement();
 
             /* Configure your own tables/entities inside the ConfigureInfrastructure method */
 

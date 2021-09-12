@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Teng.FileManagement;
 using Teng.Infrastructure.MultiTenancy;
 using Volo.Abp.AuditLogging;
 using Volo.Abp.BackgroundJobs;
@@ -28,8 +27,7 @@ namespace Teng.Infrastructure
         typeof(AbpPermissionManagementDomainIdentityServerModule),
         typeof(AbpSettingManagementDomainModule),
         typeof(AbpTenantManagementDomainModule),
-        typeof(AbpEmailingModule),
-        typeof(FileManagementDomainModule)
+        typeof(AbpEmailingModule)
     )]
     public class InfrastructureDomainModule : AbpModule
     {

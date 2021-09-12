@@ -1,5 +1,4 @@
-﻿using Teng.FileManagement;
-using Volo.Abp.Account;
+﻿using Volo.Abp.Account;
 using Volo.Abp.AutoMapper;
 using Volo.Abp.BlobStoring;
 using Volo.Abp.BlobStoring.FileSystem;
@@ -18,8 +17,7 @@ namespace Teng.Infrastructure
         typeof(AbpIdentityApplicationModule),
         typeof(AbpPermissionManagementApplicationModule),
         typeof(AbpTenantManagementApplicationModule),
-        typeof(AbpFeatureManagementApplicationModule),
-        typeof(FileManagementApplicationModule)
+        typeof(AbpFeatureManagementApplicationModule)
         )]
     public class InfrastructureApplicationModule : AbpModule
     {
@@ -29,7 +27,6 @@ namespace Teng.Infrastructure
             {
                 options.AddMaps<InfrastructureApplicationModule>();
             });
-
         }
     }
 }

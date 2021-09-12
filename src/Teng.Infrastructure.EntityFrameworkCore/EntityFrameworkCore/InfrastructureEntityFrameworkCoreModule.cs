@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Teng.FileManagement.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
@@ -24,8 +23,7 @@ namespace Teng.Infrastructure.EntityFrameworkCore
         typeof(AbpBackgroundJobsEntityFrameworkCoreModule),
         typeof(AbpAuditLoggingEntityFrameworkCoreModule),
         typeof(AbpTenantManagementEntityFrameworkCoreModule),
-        typeof(AbpFeatureManagementEntityFrameworkCoreModule),
-        typeof(FileManagementEntityFrameworkCoreModule)
+        typeof(AbpFeatureManagementEntityFrameworkCoreModule)
         )]
     public class InfrastructureEntityFrameworkCoreModule : AbpModule
     {

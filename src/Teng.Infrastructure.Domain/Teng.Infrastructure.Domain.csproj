@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Teng.FileManagement.Domain" Version="0.1.5" />
+    <PackageReference Include="Teng.FileManagement.Domain" Version="0.1.6" />
     <PackageReference Include="Volo.Abp.Emailing" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.Identity.Domain" Version="3.3.0" />
     <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="3.3.0" />

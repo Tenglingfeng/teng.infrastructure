@@ -67,6 +67,7 @@ namespace Teng.Infrastructure.Users
         }
 
         public AppUser(
+            Guid id,
             Guid? tenantId,
             string userName,
             string name,
@@ -75,7 +76,7 @@ namespace Teng.Infrastructure.Users
             bool emailConfirmed,
             string phoneNumber,
             bool phoneNumberConfirmed,
-            string headPortrait)
+            string headPortrait) : base(id)
         {
             TenantId = tenantId;
             UserName = userName;

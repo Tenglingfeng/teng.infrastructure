@@ -2,11 +2,14 @@
 using System.Threading.Tasks;
 using IdentityModel;
 using IdentityModel.Client;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Teng.Infrastructure.Users;
 using Teng.Infrastructure.Users.dtos;
 using Volo.Abp;
 using Volo.Abp.Identity;
+using Volo.Abp.ObjectExtending;
+using IdentityUser = Volo.Abp.Identity.IdentityUser;
 
 namespace Teng.Infrastructure
 {
@@ -23,6 +26,28 @@ namespace Teng.Infrastructure
         {
             _identitySecurityLogManager = identitySecurityLogManager;
             _clientOptions = clientOptions;
+        }
+
+        /// <summary>
+        /// 用户创建
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task CreateAsync(UserCreateDto input)
+        {
+            var user = new IdentityUser(
+                GuidGenerator.Create(),
+                input.UserName,
+                input.Email,
+                CurrentTenant.Id
+            );
+
+            input.MapExtraPropertiesTo(user);
+            var identityResult = (await UserManager.CreateAsync(user, input.Password));
+            identityResult.CheckErrors();
+
+            await UpdateUserByInput(user, input);
+            await CurrentUnitOfWork.SaveChangesAsync();
         }
 
         public async Task<LoginResultDto> Login(LoginInputDto input)

@@ -8,5 +8,7 @@ namespace Teng.Infrastructure.Users
     public interface IAppUserAppService : IApplicationService
     {
         Task<LoginResultDto> Login(LoginInputDto input);
+
+        Task CreateAsync(UserCreateDto input);
     }
 }

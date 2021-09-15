@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Volo.Abp.Domain.Entities.Auditing;
+using Volo.Abp.Identity;
 using Volo.Abp.Users;
 
 namespace Teng.Infrastructure.Users
@@ -61,6 +63,31 @@ namespace Teng.Infrastructure.Users
         public string Avatar { get; set; }
 
         public string Introduction { get; set; }
+
+        /// <summary>
+        /// Navigation property for the roles this user belongs to.
+        /// </summary>
+        public virtual ICollection<IdentityUserRole> Roles { get; protected set; }
+
+        /// <summary>
+        /// Navigation property for the claims this user possesses.
+        /// </summary>
+        public virtual ICollection<IdentityUserClaim> Claims { get; protected set; }
+
+        ///// <summary>
+        ///// Navigation property for this users login accounts.
+        ///// </summary>
+        //public virtual ICollection<IdentityUserLogin> Logins { get; protected set; }
+
+        /// <summary>
+        /// Navigation property for this users tokens.
+        /// </summary>
+        public virtual ICollection<IdentityUserToken> Tokens { get; protected set; }
+
+        /// <summary>
+        /// Navigation property for this organization units.
+        /// </summary>
+        public virtual ICollection<IdentityUserOrganizationUnit> OrganizationUnits { get; protected set; }
 
         private AppUser()
         {

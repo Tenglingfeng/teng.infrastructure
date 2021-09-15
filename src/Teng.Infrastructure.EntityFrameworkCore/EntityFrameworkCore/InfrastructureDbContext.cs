@@ -48,9 +48,11 @@ namespace Teng.Infrastructure.EntityFrameworkCore
                 b.Property(x => x.HeadPortrait).HasMaxLength(256);
                 b.Property(x => x.Avatar).HasMaxLength(256);
                 b.Property(x => x.Introduction).HasMaxLength(256);
-                /* Configure mappings for your additional properties
-                 * Also see the InfrastructureEfCoreEntityExtensionMappings class
-                 */
+                b.HasMany(x => x.Claims).WithOne().HasForeignKey(x => x.UserId);
+                //b.HasMany(x => x.Logins).WithOne().HasForeignKey(x => x.UserId);
+                b.HasMany(x => x.OrganizationUnits).WithOne().HasForeignKey(x => x.UserId);
+                b.HasMany(x => x.Roles).WithOne().HasForeignKey(x => x.UserId);
+                b.HasMany(x => x.Tokens).WithOne().HasForeignKey(x => x.UserId);
             });
 
             /* Configure your own tables/entities inside the ConfigureInfrastructure method */

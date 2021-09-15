@@ -1,31 +1,36 @@
-﻿using System.Net.Http;
+﻿using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using IdentityModel;
 using IdentityModel.Client;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
-using Teng.Infrastructure.Users;
+using Teng.Infrastructure.ApplicationExtension;
 using Teng.Infrastructure.Users.dtos;
 using Volo.Abp;
+using Volo.Abp.Application.Dtos;
 using Volo.Abp.Identity;
 using Volo.Abp.ObjectExtending;
 using IdentityUser = Volo.Abp.Identity.IdentityUser;
 
-namespace Teng.Infrastructure
+namespace Teng.Infrastructure.Users
 {
     public class AppUserAppService : IdentityUserAppService, IAppUserAppService
     {
         private readonly IdentitySecurityLogManager _identitySecurityLogManager;
+
+        private readonly IAppUserRepository _appUserRepository;
 
         private readonly IOptions<TokenClientOptions> _clientOptions;
 
         public AppUserAppService(IdentityUserManager userManager,
             IIdentityUserRepository userRepository,
             IIdentityRoleRepository roleRepository,
-            IdentitySecurityLogManager identitySecurityLogManager, IOptions<TokenClientOptions> clientOptions) : base(userManager, userRepository, roleRepository)
+            IdentitySecurityLogManager identitySecurityLogManager, IOptions<TokenClientOptions> clientOptions, IAppUserRepository appUserRepository) : base(userManager, userRepository, roleRepository)
         {
             _identitySecurityLogManager = identitySecurityLogManager;
             _clientOptions = clientOptions;
+            _appUserRepository = appUserRepository;
         }
 
         /// <summary>
@@ -48,6 +53,23 @@ namespace Teng.Infrastructure
 
             await UpdateUserByInput(user, input);
             await CurrentUnitOfWork.SaveChangesAsync();
+        }
+
+        /// <summary>
+        /// 查询用户列表
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<PagedResultDto<AppUserDto>> GetListAsync(GetUserPagedAndSortedResultInput input)
+        {
+            var count = await _appUserRepository.GetCountAsync(input.Filter);
+            var entities =
+                await _appUserRepository.GetListAsync(input.Sorting, input.MaxResultCount, input.SkipCount,
+                    input.Filter);
+
+            var dtos = entities.Select(x => x.ToDto<AppUser, AppUserDto>()).ToList();
+
+            return new PagedResultDto<AppUserDto>(count, dtos);
         }
 
         public async Task<LoginResultDto> Login(LoginInputDto input)

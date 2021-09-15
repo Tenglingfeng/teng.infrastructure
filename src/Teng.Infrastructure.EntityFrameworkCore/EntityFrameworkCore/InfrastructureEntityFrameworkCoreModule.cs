@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Teng.Infrastructure.Repositories.Users;
+using Teng.Infrastructure.Users;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
@@ -38,7 +40,8 @@ namespace Teng.Infrastructure.EntityFrameworkCore
             {
                 /* Remove "includeAllEntities: true" to create
                  * default repositories only for aggregate roots */
-                options.AddDefaultRepositories(includeAllEntities: true);
+                //options.AddDefaultRepositories(includeAllEntities: true);
+                options.AddRepository<AppUser, EfCoreAppUserRepository>();
             });
 
             Configure<AbpDbContextOptions>(options =>
